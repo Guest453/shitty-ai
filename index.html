@@ -292,10 +292,6 @@
       <div id="header">
         <div class="dash-stat" style="font-size: 0.9rem; padding: 6px 12px;">pollen: <span id="menu-balance">...</span></div>
         <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
-          <label style="font-size: 0.85rem; color: #cbd5e1; display: flex; align-items: center; gap: 8px;">
-            temp: <span id="temp-display">1.0</span>
-            <input type="range" id="temp-slider" min="0" max="2" step="0.1" value="1.0" style="width: 70px;">
-          </label>
           <select id="model-select"><option value="">loading...</option></select>
           <span class="text-link" id="menu-logout-btn" style="margin: 0;">disconnect</span>
         </div>
@@ -373,12 +369,6 @@
     const modelSelect = document.getElementById('model-select');
     const msgs = document.getElementById('messages');
     const input = document.getElementById('user-input');
-    const tempSlider = document.getElementById('temp-slider');
-    const tempDisplay = document.getElementById('temp-display');
-
-    tempSlider.addEventListener('input', (e) => {
-      tempDisplay.textContent = e.target.value;
-    });
 
     // check hash for auth redirect
     const hashParams = new URLSearchParams(window.location.hash.slice(1));
@@ -477,11 +467,9 @@
       
       try {
         const model = modelSelect.value;
-        const temp = tempSlider.value;
         const prompt = `act like a broken, unhelpful, terrible ai. give a completely unrelated, useless answer, or absolute nonsense. user says: ${text}`;
         
-        // append temperature parameter to the url
-        const res = await fetch(`https://gen.pollinations.ai/text/${encodeURIComponent(prompt)}?model=${model}&temperature=${temp}`, {
+        const res = await fetch(`https://gen.pollinations.ai/text/${encodeURIComponent(prompt)}?model=${model}`, {
           headers: { 'Authorization': `Bearer ${apiKey}` }
         });
         
