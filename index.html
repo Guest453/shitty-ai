@@ -4,6 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>worst ai ever</title>
+  <script>
+    // Security: Frame-busting (prevent clickjacking)
+    // NOTE: Commented out because it breaks the sandboxed preview canvas.
+    // Uncomment this block when you deploy to your actual website!
+    /*
+    if (window.top !== window.self) {
+      window.top.location.replace(window.self.location.href);
+    }
+    */
+
+    // Security: Basic anti-inspect & anti-right click
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('keydown', event => {
+      // Block F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, Ctrl+U
+      if (event.key === 'F12' || 
+         (event.ctrlKey && event.shiftKey && ['I', 'J', 'C', 'i', 'j', 'c'].includes(event.key)) || 
+         (event.ctrlKey && (event.key === 'U' || event.key === 'u'))) {
+          event.preventDefault();
+      }
+    });
+  </script>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap');
 
