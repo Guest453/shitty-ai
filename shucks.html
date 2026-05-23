@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>shucks</title>
+<style>
+  body { 
+    margin: 0; 
+    background: black; 
+    color: lime; 
+    overflow: hidden; 
+  }
+  video { 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 2; 
+    border: 5px solid white;
+  }
+  #spam { 
+    position: absolute; 
+    width: 100vw; 
+    height: 100vh; 
+    z-index: 1; 
+    overflow: hidden; 
+    word-wrap: break-word; 
+    font-family: monospace; 
+  }
+</style>
+</head>
+<body>
+  <div id="spam"></div>
+  <video width="800" autoplay loop controls>
+    <source src="shucks.mp4" type="video/mp4">
+  </video>
+  <script>
+    document.getElementById('spam').innerText = 'shucks boii '.repeat(10000);
+  </script>
+</body>
+</html>
